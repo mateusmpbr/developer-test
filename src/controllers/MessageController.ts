@@ -1,5 +1,5 @@
 import {Request, Response} from "express"
-import {Message} from "../models/Message"
+import {Message} from "@models/Message"
 
 export const index = async (Request: Request, Response: Response) => {
     // TODO: implements logic
