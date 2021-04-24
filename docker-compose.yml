@@ -27,7 +27,7 @@ services:
             - mongo-data:/data/db
             - ./.docker/mongo:/docker-entrypoint-initdb.d
 
-    node:
+    app:
         build: .
         ports:
             - 3000:3000
