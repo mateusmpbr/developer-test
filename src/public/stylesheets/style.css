@@ -1,8 +1,16 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.dvlpr-h1 {
+    font-size: 2rem !important;
+    padding: 2rem !important;
+}
+
+.dvlpr-bg-aqua-green {
+    background-color: #148f77 !important;
+}
+
+.dvlpr-border-bottom-dark {
+    border-bottom: 0.125rem solid #17202a !important;
 }

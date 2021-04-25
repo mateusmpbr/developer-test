@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
-  <title>Lista de Mensagens</title>
-</head>
-<body>
-  <div class="container">
-    <h1>Lista de Mensagens</h1>
-    <table class="table">
+<app-layout title="Lista de Mensagens">
+  <h1 class= "text-white d-flex justify-content-center mb-0 dvlpr-h1 dvlpr-bg-aqua-green">
+    Lista de Mensagens
+  </h1>
+  <div class="container-fluid">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">from</th>
+          <th scope="col">target_id</th>
+          <th scope="col">media</th>
+          <th scope="col">message</th>
         </tr>
       </thead>
       <tbody>
@@ -24,22 +18,24 @@
           <th scope="row">1</th>
           <td>Mark</td>
           <td>Otto</td>
+          <td>Rok</td>
           <td>@mdo</td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Jacob</td>
           <td>Thornton</td>
+          <td>Rob</td>
           <td>@fat</td>
         </tr>
         <tr>
           <th scope="row">3</th>
           <td>Larry</td>
           <td>the Bird</td>
+          <td>The Lion</td>
           <td>@twitter</td>
         </tr>
       </tbody>
     </table>
   </div>
-</body>
-</html>
+</app-layout>
