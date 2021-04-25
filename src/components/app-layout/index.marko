@@ -1,0 +1,25 @@
+<lasso-page/>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Marko | Lasso + Express</title>
+    <lasso-head/>
+  </head>
+  <body>
+    <app-header title=input.title/>
+    <div class="container">
+      <${input.renderBody}/>
+    </div>
+    <lasso-body/>
+  </body>
+</html>
+
+style {
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+  }
+}

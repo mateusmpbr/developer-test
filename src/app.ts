@@ -1,5 +1,7 @@
 import express from 'express'
 import markoMiddleware from '@marko/express'
+import { configure } from 'lasso'
+import { serveStatic } from 'lasso/middleware'
 import errorPage from '@views/error'
 
 var createError = require('http-errors')
@@ -9,6 +11,12 @@ var logger = require('morgan')
 
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
+
+configure({
+  plugins: [
+    'lasso-marko'
+  ]
+})
 
 var app = express()
 
@@ -22,6 +30,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(markoMiddleware()) // enable res.marko(template, data)
+app.use(serveStatic()) // serve static assets with lasso
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
