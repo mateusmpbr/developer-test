@@ -1,12 +1,19 @@
 class {
-    onCreate() {
-        this.state = {
-            count: 0
-        };
+  onCreate() {
+    this.state = {
+      count: 0
     }
-    increment() {
-        this.state.count++;
-    }
+    console.log("onCreate()")
+  }
+
+  onMount() {
+    console.log("onMount()");
+  }
+
+  increment() {
+    this.state.count++;
+    console.log("increment()");
+  }
 }
 
 <div>The current count is ${state.count}</div>

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "node -r marko/node-require dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify -r marko/node-require src/server.ts",
+    "start": "node -r @babel/register -r marko/node-require dist/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify -r @babel/register -r marko/node-require src/server.ts",
     "test": "jest"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-typescript": "^7.10.1",
+    "@babel/register": "^7.13.16",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.0",
     "@types/marko": "^4.6.2",
