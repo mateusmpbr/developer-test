@@ -5,11 +5,12 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node -r @babel/register -r marko/node-require dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify -r @babel/register -r marko/node-require src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify -r tsconfig-paths/register -r @babel/register -r marko/node-require src/server.ts",
     "test": "jest"
   },
   "dependencies": {
     "@lasso/marko-taglib": "^2.0.3",
+    "@marko/compiler": "^5.9.0",
     "@marko/express": "^1.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

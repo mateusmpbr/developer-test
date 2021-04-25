@@ -1,14 +1,19 @@
 import { Request, Response } from 'express'
 import { Message } from '@models/Message'
 
-export const index = async (Request: Request, Response: Response) => {
+import indexPage from '@views/messages/index'
+import createPage from '@views/messages/create'
+
+export const index = async (req: Request, res: Response) => {
   // TODO: implements logic
+  return indexPage
 }
 
-export const create = async (Request: Request, Response: Response) => {
+export const create = async (req: Request, res: Response) => {
   // TODO: implements logic
+  return createPage
 }
 
-export const store = async (Request: Request, Response: Response) => {
+export const store = async (req: Request, res: Response) => {
   // TODO: implements logic
 }
