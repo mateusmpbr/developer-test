@@ -7,4 +7,4 @@ router.get('/', MessageController.index)
 router.get('/create', MessageController.create)
 router.post('/', MessageController.store)
 
-export { router }
+module.exports = router
