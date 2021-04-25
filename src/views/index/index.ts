@@ -1,5 +1,5 @@
-import indexMarko from './index.marko'
+import template from './template.marko'
 
 export default (req, res) => {
-  res.marko(indexMarko, {})
+  res.marko(template, {})
 }
