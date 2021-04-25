@@ -10,8 +10,9 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 
-var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
+var indexRouter = require('./routes/Index')
+var exampleRouter = require('./routes/Example')
+var messageRouter = require('./routes/Message')
 
 configure({
   plugins: [
@@ -33,7 +34,8 @@ app.use(markoMiddleware()) // enable res.marko(template, data)
 app.use(serveStatic()) // serve static assets with lasso
 
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+app.use('/example', exampleRouter)
+app.use('/messages', messageRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

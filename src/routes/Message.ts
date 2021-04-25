@@ -3,8 +3,8 @@ import * as MessageController from '@controllers/MessageController'
 
 const router = Router()
 
-router.get('/messages', MessageController.index)
-router.get('/messages/create', MessageController.create)
-router.post('/messages', MessageController.store)
+router.get('/', MessageController.index)
+router.get('/create', MessageController.create)
+router.post('/', MessageController.store)
 
 export { router }
