@@ -1,4 +1,4 @@
-CREATE TABLE `message` (
+CREATE TABLE `Message` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `from` INTEGER,
     `target_id` INTEGER,
