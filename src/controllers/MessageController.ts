@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import { Request, Response } from 'express'
-import { Message } from '@models/Message'
 
 import sequelize from '../database/Sequelize'
 import mongoose from '../database/Mongoose'
