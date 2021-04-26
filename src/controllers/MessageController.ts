@@ -1,19 +1,18 @@
+// eslint-disable-next-line no-unused-vars
 import { Request, Response } from 'express'
 import { Message } from '@models/Message'
 
-import indexPage from '@views/messages/index'
-import createPage from '@views/messages/create'
+import indexTemplate from '@views/messages/index.marko'
+import createTemplate from '@views/messages/create.marko'
 
-export const index = async (req: Request, res: Response) => {
-  // TODO: implements logic
-  return indexPage
+export const index = (req: Request, res: Response) => {
+  res.marko(indexTemplate, {})
 }
 
-export const create = async (req: Request, res: Response) => {
-  // TODO: implements logic
-  return createPage
+export const create = (req: Request, res: Response) => {
+  res.marko(createTemplate, {})
 }
 
-export const store = async (req: Request, res: Response) => {
-  // TODO: implements logic
+export const store = (req: Request, res: Response) => {
+
 }

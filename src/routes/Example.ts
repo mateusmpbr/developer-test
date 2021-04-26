@@ -1,8 +1,8 @@
-import examplePage from '@views/example'
-var express = require('express')
-var router = express.Router()
+import { Router } from 'express'
+import * as HelperController from '@controllers/HelperController'
 
-/* GET home page. */
-router.get('/', examplePage)
+var router = Router()
+
+router.get('/', HelperController.example)
 
 module.exports = router

@@ -3,7 +3,7 @@ import markoMiddleware from '@marko/express'
 import { configure } from 'lasso'
 import { serveStatic } from 'lasso/middleware'
 
-import errorPage from '@views/error'
+import errorTemplate from '@views/error.marko'
 
 var createError = require('http-errors')
 var path = require('path')
@@ -50,7 +50,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500)
-  res.marko(errorPage, {})
+  res.marko(errorTemplate, {})
 })
 
 module.exports = app
