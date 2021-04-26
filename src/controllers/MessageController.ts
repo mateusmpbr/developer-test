@@ -2,6 +2,9 @@
 import { Request, Response } from 'express'
 import { Message } from '@models/Message'
 
+import sequelize from '../database/Sequelize'
+import mongoose from '../database/Mongoose'
+
 import indexTemplate from '@views/messages/index.marko'
 import createTemplate from '@views/messages/create.marko'
 
