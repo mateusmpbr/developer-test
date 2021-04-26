@@ -1,12 +1,22 @@
 import template from './template.marko'
 import sequelize from '../../database/Sequelize'
-// import mongoose from '../../database/Mongoose'
+import mongoose from '../../database/Mongoose'
 
-// const db = mongoose.connection
-// db.on('error', console.error.bind(console, 'connection error:'))
-// db.once('open', function () {
-//   // we're connected!
-// })
+(async () => {
+  try {
+    await sequelize.authenticate()
+    console.log('Sequelize connection has been established successfully.')
+  } catch (error) {
+    console.error('Unable to connect to the database from Sequelize:', error)
+  }
+})()
+
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'Unable to connect to the database from Mongoose:'))
+db.once('open', function () {
+  console.log('Mongoose connection has been established successfully.')
+})
+
 // const messageSchema = new mongoose.Schema({
 //   name: String
 // })
@@ -16,15 +26,6 @@ import sequelize from '../../database/Sequelize'
 //   console.log('The messages are...')
 //   console.log(messages)
 // })
-
-(async () => {
-  try {
-    await sequelize.authenticate()
-    console.log('Connection has been established successfully.')
-  } catch (error) {
-    console.error('Unable to connect to the database:', error)
-  }
-})()
 
 export default (req, res) => {
   res.marko(template, {})
