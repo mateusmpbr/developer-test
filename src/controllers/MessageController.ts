@@ -44,7 +44,7 @@ export const store = async (req: Request, res: Response) => {
     media
   }
 
-  const newMessage = await Message.create(attr)
+  await Message.create(attr)
 
   const message_status = res.statusCode === 200
 
