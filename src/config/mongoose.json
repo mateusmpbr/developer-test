@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "mongo-database",
+    "port": 27017,
+    "host": "mongo-container"
+  }
+}
