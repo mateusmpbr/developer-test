@@ -5,8 +5,8 @@ export interface MessageAttributes {
   id: number;
   from?: number;
   target_id?: number;
-  media: string;
-  message: string;
+  media?: string;
+  message?: string;
 }
 
 export type MessagePk = "id";
@@ -17,8 +17,8 @@ export class Message extends Model<MessageAttributes, MessageCreationAttributes>
   id!: number;
   from?: number;
   target_id?: number;
-  media!: string;
-  message!: string;
+  media?: string;
+  message?: string;
 
 
   static initModel(sequelize: Sequelize.Sequelize): typeof Message {
@@ -39,11 +39,11 @@ export class Message extends Model<MessageAttributes, MessageCreationAttributes>
     },
     media: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
     },
     message: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,

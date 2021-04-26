@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { Request, Response } from 'express'
 
-import sequelize from '../database/Sequelize'
-import mongoose from '../database/Mongoose'
+import { Message, MessageCreationAttributes } from '@models/init-models'
 
-// import { initModels, Messages, MessagesCreationAttributes } from '@models/init-models'
+import MessageMongooseModel from '../models/mongoose/Message'
+import MediaMongooseModel from '../models/mongoose/Media'
 
 import indexTemplate from '@views/messages/index.marko'
 import createTemplate from '@views/messages/create.marko'
@@ -18,19 +18,40 @@ export const create = async (req: Request, res: Response) => {
 }
 
 export const store = async (req: Request, res: Response) => {
-  // import models into sequelize instance
-  // initModels(sequelize)
+  const { from, target_id } = req.body
+  var { message, media } = req.body
 
   // const myOrders = await Order.findAll({ where: { customerId: cust.id }, include: ['customer'] })
 
-  // const attr: MessagesCreationAttributes = {
-  //   from: 12345,
-  //   target_id: 54321,
-  //   media: 'https://www.fundospaisagens.com/800x600/wallpaper-de-uma-galaxia.jpg',
-  //   message: 'Essa é uma mensagem.'
+  if (!message) {
+    const randomMessage = await MessageMongooseModel
+      .aggregate([{ $sample: { size: 1 } }, { $project: { _id: false, message: true } }])
+
+    message = randomMessage[0].message
+  }
+
+  // if (!media) {
+  //   const randomMedia = await MediaMongooseModel
+  //     .aggregate([{ $sample: { size: 1 } }, { $project: { _id: false, media: true } }])
+
+  //   media = randomMedia.length
   // }
 
-  // const newMessage = await Messages.create(attr)
+  const attr: MessageCreationAttributes = {
+    from,
+    target_id,
+    message,
+    media
+  }
 
-  // res.send(newMessage)
+  const newMessage = await Message.create(attr)
+
+  const message_status = res.statusCode === 200
+
+  res.json({
+    from,
+    target_id,
+    message,
+    message_status
+  })
 }
