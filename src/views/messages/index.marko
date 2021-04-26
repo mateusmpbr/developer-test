@@ -14,27 +14,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>Rok</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>Rob</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>The Lion</td>
-          <td>@twitter</td>
-        </tr>
+        <for|message| of=data.processedMessages >
+          <tr>
+            <th scope="row">${message.id}</th>
+            <td>${message.from}</td>
+            <td>${message.target_id}</td>
+            <td>${message.media}</td>
+            <td>${message.message}</td>
+          </tr>
+        </for>
       </tbody>
     </table>
   </div>

@@ -11,10 +11,13 @@ import createTemplate from '@views/messages/create.marko'
 
 export const index = async (req: Request, res: Response) => {
   const messages = await Message.findAll()
-  // console.log(users.every(user => user instanceof User)) // true
-  // console.log('All users:', JSON.stringify(users, null, 2))
+  const processedMessages = JSON.parse(JSON.stringify(messages))
+  res.marko(indexTemplate, { processedMessages: processedMessages })
+}
+
+export const indexJson = async (req: Request, res: Response) => {
+  const messages = await Message.findAll()
   res.json(messages)
-  // res.marko(indexTemplate, {})
 }
 
 export const create = async (req: Request, res: Response) => {
@@ -22,10 +25,9 @@ export const create = async (req: Request, res: Response) => {
 }
 
 export const store = async (req: Request, res: Response) => {
+  // eslint-disable-next-line camelcase
   const { from, target_id } = req.body
   var { message, media } = req.body
-
-  // const myOrders = await Order.findAll({ where: { customerId: cust.id }, include: ['customer'] })
 
   if (!message) {
     const randomMessage = await MessageMongooseModel
@@ -41,6 +43,9 @@ export const store = async (req: Request, res: Response) => {
   //   media = randomMedia.length
   // }
 
+  // OBS: remover a linha abaixo
+  media = '/path/to/media'
+
   const attr: MessageCreationAttributes = {
     from,
     target_id,
@@ -50,8 +55,10 @@ export const store = async (req: Request, res: Response) => {
 
   await Message.create(attr)
 
+  // eslint-disable-next-line camelcase
   const message_status = res.statusCode === 200
 
+  // Provavelmente esse comando irá se manter, mesmo se chamado pelo HTML
   res.json({
     from,
     target_id,
