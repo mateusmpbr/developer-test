@@ -1,0 +1,7 @@
+CREATE TABLE `message` (
+    `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `from` INTEGER,
+    `target_id` INTEGER,
+    `media` VARCHAR(255) NOT NULL,
+    `message` VARCHAR(255) NOT NULL
+)  ENGINE=INNODB;
