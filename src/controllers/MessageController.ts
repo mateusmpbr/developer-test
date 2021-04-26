@@ -9,15 +9,15 @@ import mongoose from '../database/Mongoose'
 import indexTemplate from '@views/messages/index.marko'
 import createTemplate from '@views/messages/create.marko'
 
-export const index = (req: Request, res: Response) => {
+export const index = async (req: Request, res: Response) => {
   res.marko(indexTemplate, {})
 }
 
-export const create = (req: Request, res: Response) => {
+export const create = async (req: Request, res: Response) => {
   res.marko(createTemplate, {})
 }
 
-export const store = (req: Request, res: Response) => {
+export const store = async (req: Request, res: Response) => {
   // import models into sequelize instance
   // initModels(sequelize)
 
