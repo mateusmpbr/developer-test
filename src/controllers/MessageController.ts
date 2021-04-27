@@ -40,11 +40,12 @@ export const store = async (req: Request, res: Response) => {
   //   const randomMedia = await MediaMongooseModel
   //     .aggregate([{ $sample: { size: 1 } }, { $project: { _id: false, media: true } }])
 
-  //   media = randomMedia.length
+  //   media = randomMedia[0].media
   // }
 
-  // OBS: remover a linha abaixo
-  media = media ?? '/path/to/media'
+  if (!media) {
+    media = '/path/to/media'
+  }
 
   const attr: MessageCreationAttributes = {
     from,
