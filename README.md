@@ -31,6 +31,6 @@
                 - media
                 - message
         - Ao receber o payload, o endpoint cadastra os dados num banco de dados MySQL
-        - Caso o payload não contenha nenhuma mensagem, é cadastrada uma mensagem escolhida aleatóriamente de um MongoDB
+        - Caso o payload não contenha nenhuma mensagem, é cadastrada uma mensagem escolhida aleatoriamente de um MongoDB
         - Após o recebimento e processamentos dos dados, é retornado um JSON contendo as informações recebidas e o status de recebimento
         - As mensagens cadastradas serão exibidas em GET `http://localhost:3000/messages` e GET `http://localhost:3000/messages/json`
