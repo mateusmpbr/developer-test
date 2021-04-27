@@ -34,5 +34,15 @@ function handleFormSubmit (event) {
   xhr.send(JSON.stringify(data))
 }
 
+// eslint-disable-next-line no-unused-vars
+function showUrlField () {
+  document.getElementById('media-url').hidden = false
+}
+
+// eslint-disable-next-line no-unused-vars
+function hideUrlField () {
+  document.getElementById('media-url').hidden = true
+}
+
 var form = document.getElementById('create-message-form')
 form.addEventListener('submit', handleFormSubmit)
