@@ -5,7 +5,6 @@ import sequelize from '../database/Sequelize'
 import mongoose from '../database/Mongoose'
 
 import indexTemplate from '@views/index.marko'
-import exampleTemplate from '@views/example.marko'
 
 export const index = (req: Request, res: Response) => {
   // Check Sequelize connection
@@ -27,8 +26,4 @@ export const index = (req: Request, res: Response) => {
 
   // Render template
   res.marko(indexTemplate, {})
-}
-
-export const example = (req: Request, res: Response) => {
-  res.marko(exampleTemplate, {})
 }
