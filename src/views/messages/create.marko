@@ -1,9 +1,29 @@
+<!-- class {
+  onCreate() {
+    this.state = {
+      mediaUrl: 'hidden'
+    }
+  }
+
+  onMount() {
+    console.log("Mounted in the browser!");
+  }
+
+  show() {
+    this.state.mediaUrl = 'hidden';
+  }
+
+  hide() {
+    this.state.mediaUrl = '';
+  }
+} -->
+
 <app-layout title="Cadastro de Mensagens">
   <h1 class="text-white d-flex justify-content-center mb-4 bg-primary dvlpr-h1">
     Cadastro de Mensagens
   </h1>
   <div class="container">
-    <form>
+    <form id="create-message-form">
       <div class="form-group">
         <label for="from" class="font-weight-bold">from</label>
         <input type="number" class="form-control" id="from" name="from" placeholder="Insira o número do remetente da mensagem" required>
@@ -22,10 +42,10 @@
         <br/>
         <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
           <label class="btn btn-primary">
-            <input type="radio" name="media-radio" id="false" autocomplete="off" checked> Não
+            <input type="radio" name="media-radio" id="no-insert" value="no-insert" autocomplete="off" checked> Não
           </label>
           <label class="btn btn-primary active">
-            <input type="radio" name="media-radio" id="true" autocomplete="off"> Sim
+            <input type="radio" name="media-radio" id="insert" value="insert" autocomplete="off"> Sim
           </label>
         </div>
         <small id="media-help" class="form-text text-muted">OBS: se esse campo não for preenchido, será cadastrada uma mídia randômica.</small>
@@ -36,4 +56,5 @@
       <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
   </div>
+    <script type="text/javascript" src="/javascripts/services.js"></script>
 </app-layout>

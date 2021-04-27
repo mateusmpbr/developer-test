@@ -44,7 +44,7 @@ export const store = async (req: Request, res: Response) => {
   // }
 
   // OBS: remover a linha abaixo
-  media = '/path/to/media'
+  media = media ?? '/path/to/media'
 
   const attr: MessageCreationAttributes = {
     from,
