@@ -43,7 +43,7 @@ export const store = async (req: Request, res: Response) => {
   //   media = randomMedia[0].media
   // }
 
-  if (!media) {
+  if (!media || media === 'false') {
     media = '/path/to/media'
   }
 
