@@ -11,7 +11,7 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 
-var indexRouter = require('./routes/Index')
+var indexRouter = require('./routes/index')
 var messageRouter = require('./routes/Message')
 
 configure({
