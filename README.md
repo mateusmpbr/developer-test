@@ -22,7 +22,7 @@
         - Exibe um JSON com as mensagens cadastradas
     - GET `http://localhost:3000/messages/create`
         - Exibe num arquivo .marko estilizado uma página para realizar o cadastro de uma mensagem
-        - OBS: também é possível realizar o cadastro da mensagem ao enviar um payload diretamente para o endpoint abaixo
+        - OBS: também é possível realizar o cadastro da mensagem ao enviar um payload diretamente para o endpoint POST `http://localhost:3000/messages`
     - POST `http://localhost:3000/messages`
         - Recebe um payload com a seguinte configuração:
             - Content-Type
